@@ -1,0 +1,31 @@
+@use '../../styles/partials/' as p;
+@use '../BtnPrimary/BtnPrimary.scss';
+
+.searchBox {
+    @include p.input-layout;
+    background-color: p.$secondaryColor--alabaster;
+    border: 1px solid p.$secondaryColor--mercury;
+    width: 100%;
+    gap: p.$size-xxs;
+    order: 1;
+    grid-column-start: 1;
+
+    @include p.breakpoint(tablet) {
+        width: p.px-to-rem(200);
+    }
+
+    &__icon {
+        @extend .btn__icon;
+    }
+
+    &__input {
+        border: none;
+        background-color: p.$secondaryColor--alabaster;
+        height: 100%;  
+
+        &::placeholder {
+            color: p.$primaryColor--black;
+        }
+    }
+
+}

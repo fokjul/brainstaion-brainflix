@@ -1,10 +1,14 @@
 import React from 'react';
 import './BtnPrimary.scss';
-export default function BtnPrimary({imgSrc, btnName}) {
-    return <>
-        <button className='btn'>
-            <div className='btn__icon' background-image={}></div>
-            <span>{btnName}</span>
+
+const BtnPrimary = ({imgSrc, btnName, btnClass = ''}) =>  {
+    return (
+        <button className={`btn ${btnClass}`}>
+            <img src={imgSrc} className='btn__icon' alt={`${btnName} icon`}/>
+            <span className='btn__label'>{btnName}</span>
+            <div></div>
         </button>
-    </>
+    );
 }
+
+export default BtnPrimary

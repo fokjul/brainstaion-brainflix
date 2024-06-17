@@ -1,0 +1,9 @@
+@use './layouts' as l;
+
+@mixin input-layout {
+    height: l.$size-xl;
+    padding-inline: l.$size-xs;
+    border-radius: l.$size-xxs;
+    display: flex;
+    align-items: center;
+}

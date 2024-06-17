@@ -1,0 +1,14 @@
+@use '../../styles/partials/' as p;
+
+.avatar {
+    height: p.px-to-rem(40);
+    width: p.px-to-rem(40);
+    border-radius: p.$size-m;
+    object-fit: cover;
+    order: 2;
+    grid-column-start: 2;
+
+    @include p.breakpoint(tablet) {
+        order: 3;
+    }
+}

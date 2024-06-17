@@ -1,0 +1,81 @@
+@use '../../styles/partials/' as p;
+
+.player {
+    background-color: p.$secondaryColor--darkBlack;
+    width: 100%;
+    //max-height: p.px-to-rem(540);
+    
+    display: flex;
+    justify-content: center;
+
+    &__container {
+        position: relative;
+        max-width: p.px-to-rem(960);
+
+        @include p.breakpoint (tablet) {
+            margin-inline: p.$size-l;
+            max-height: p.px-to-rem(540);
+        }
+
+        @include p.breakpoint (desktop) {
+            margin-inline: auto;
+        }
+    }
+
+    &__video {
+        aspect-ratio: 16 / 9;
+        max-height: p.px-to-rem(540);
+        max-width: p.px-to-rem(960);
+        width: 100%;
+        height: 100%;
+        
+    }
+
+    &__actions {
+        position: absolute;
+        bottom: p.$size-s;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: p.px-to-rem(960);
+        padding-inline: p.$size-s;
+        gap: p.$size-s;
+
+        &--controls {
+            display: flex;
+            align-items: center;
+            gap: p.$size-s;
+            background-color: p.$secondaryColor--darkBlack-50op;
+            padding-inline: p.$size-s;  
+            padding-block: p.$size-xs;  
+            border-radius: p.$size-xxs;  
+        }
+
+        &--icon {
+            height: 100%;
+            width: 100%;
+        }
+
+        &--slider {
+            border: p.px-to-rem(2) solid p.$secondaryColor--darkBlack;
+            width: 100%;
+            border-radius: p.$size-xxs;
+        }
+
+        &--time {
+            color: p.$primaryColor--white;
+            @extend .labels-buttons;
+            font-weight: 400;
+        }
+
+        .flex-grow {
+            flex: 1;
+        }
+
+    }
+
+   
+
+
+    
+}

@@ -1,11 +1,42 @@
+@use '../../styles/partials/' as p;
+
 .btn {
-    background-color: red;
+    @include p.input-layout;
+    border: none;
+    background-color: p.$primaryColor--blue;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+
+    @include p.breakpoint(tablet){
+        width: p.px-to-rem(150);
+    }
+
+    &__icon {
+        background-size: contain;
+        width: p.$size-s;
+        height: p.$size-s;
+    }
+
+    &__label {
+        @extend .labels-buttons;
+        text-transform: uppercase;
+        color: p.$primaryColor--white;
+    }
+
+    &:hover {
+        background-color: p.$secondaryColor--darkBlue;
+    }
 }
 
-.btn__icon {
-    background: url('../../assets/icons/add_comment.svg');
-    background-size: contain;
-    width: 14px;
-    height: 14px;
+.btn--header {
+    order: 3;
+    grid-column-start: 1;
+    grid-column-end: span 2;
 
+    @include p.breakpoint(tablet){
+        order: 2;
+    }
 }
+
+

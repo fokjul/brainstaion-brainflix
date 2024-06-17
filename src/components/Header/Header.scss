@@ -1,0 +1,40 @@
+@use '../../styles/partials/' as p;
+
+.header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-inline: p.$size-s;
+    margin-block: p.$size-s;
+    gap: p.$size-s;
+
+    @include p.breakpoint (tablet) {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-inline: p.$size-l;
+    }
+
+    @include p.breakpoint (desktop) {
+        max-width: p.px-to-rem(1200);
+        margin-inline: auto;
+    }
+
+    &__actionContainer {
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto p.px-to-rem(40);
+        gap: p.$size-s;
+
+        @include p.breakpoint (tablet) {
+            width: inherit;
+            display: flex;
+            gap: p.$size-m;
+        }
+    }
+}
+
+.logo {
+    height: p.px-to-rem(25);
+    max-width: p.px-to-rem(120);
+}
