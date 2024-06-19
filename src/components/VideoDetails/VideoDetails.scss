@@ -1,0 +1,48 @@
+@use '../../styles/partials/' as p;
+
+.video-details {
+    display: flex;
+    flex-direction: column;
+    gap: p.$size-m;
+
+
+    &__title {
+        @extend .heading1 
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid p.$secondaryColor--mercury;
+        padding-bottom: p.$size-xs;
+        
+        @include p.breakpoint(desktop) {
+            padding-right: p.$size-m;
+        }
+    }
+
+    &__metaInfo {
+        display: flex;
+        gap: p.$size-xs;
+        flex-direction: column;
+
+        @include p.breakpoint(tablet) {
+            gap: p.$size-l;
+            flex-direction: row;
+        }
+    }
+
+    &__channel {
+        @extend .subheader
+    }
+
+    &__description {
+        @extend .body-copy;
+        @include p.breakpoint(desktop) {
+            padding-right: p.$size-m;
+        }
+
+
+    }
+
+}

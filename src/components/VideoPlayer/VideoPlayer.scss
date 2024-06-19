@@ -44,6 +44,7 @@
         &--controls {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: p.$size-s;
             background-color: p.$secondaryColor--darkBlack-50op;
             padding-inline: p.$size-s;  
@@ -58,7 +59,7 @@
 
         &--slider {
             border: p.px-to-rem(2) solid p.$secondaryColor--darkBlack;
-            width: 100%;
+            flex: 1;
             border-radius: p.$size-xxs;
         }
 

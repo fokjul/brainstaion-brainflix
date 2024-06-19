@@ -1,0 +1,52 @@
+@use '../../styles/partials/' as p;
+
+.comment-form {
+    display: flex;
+    gap: p.$size-m;
+    padding-block: p.$size-m;
+    border-bottom: 1px solid p.$secondaryColor--mercury;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: p.$size-m;
+        width: 100%;
+
+        @include p.breakpoint(tablet) {
+            flex-direction: row;
+            align-items: end;
+            justify-content: space-between;
+        }
+
+        @include p.breakpoint(desktop) {
+            padding-inline: p.$size-m;
+        }
+    }
+
+    &__avatar {
+        display: flex;
+        align-items: top;
+        margin-top: p.px-to-rem(20);
+
+        @include p.breakpoint(tablet) {
+            margin-top: 0;
+            align-items: center;
+        }
+    }
+
+    &__input {
+        flex: 1;
+    }
+
+    @include p.breakpoint(tablet) {
+        align-items: end;
+        justify-content: space-between;
+    }
+
+
+
+
+
+
+
+}

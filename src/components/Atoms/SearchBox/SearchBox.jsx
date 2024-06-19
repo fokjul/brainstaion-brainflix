@@ -1,5 +1,5 @@
 import React from 'react'
-import upload from '../../assets/icons/search.svg';
+import upload from '../../../assets/icons/search.svg';
 import './SearchBox.scss';
 
 const SearchBox = () => {

@@ -1,0 +1,18 @@
+@use '../../styles/partials/' as p;
+
+.videoList {
+    display: flex;
+    flex-direction: column;
+    gap: p.$size-m;
+    padding-block: p.$size-m;
+
+    @include p.breakpoint (desktop) {
+        padding-left: p.$size-m;
+        border-left: 1px solid p.$secondaryColor--mercury;
+        min-width: p.px-to-rem(352);
+    }
+
+    &__listLabel {
+        @include p.label;
+    }
+}

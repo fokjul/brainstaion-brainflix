@@ -1,0 +1,25 @@
+@use '../../../styles/partials/' as p;
+
+.avatar {
+    width: clamp(p.px-to-rem(36), 7vw, p.px-to-rem(40));
+    height: clamp(p.px-to-rem(36), 7vw, p.px-to-rem(40));
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: p.$secondaryColor--mercury;
+    flex-shrink: 0;
+    order: 2;
+    grid-column-start: 2;
+
+    @include p.breakpoint(tablet) {
+        order: 3;
+    }
+}
+
+.avatar__bg {
+    width: clamp(p.px-to-rem(36), 7vw, p.px-to-rem(40));
+    height: clamp(p.px-to-rem(36), 7vw, p.px-to-rem(40));
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: p.$secondaryColor--mercury;
+    flex-shrink: 0;
+}

@@ -1,0 +1,45 @@
+@use '../../../styles/partials/' as p;
+
+.comment {
+    display: flex;
+    gap: p.$size-m;
+    padding-block: p.$size-m;
+    border-bottom: 1px solid p.$secondaryColor--mercury;
+
+    @include p.breakpoint(desktop) {
+        padding-right: p.$size-m;
+    }
+    
+    &__img {
+        width: clamp(p.px-to-rem(36), 7vw, p.px-to-rem(40));
+        height: clamp(p.px-to-rem(36), 7vw, p.px-to-rem(40));
+        border-radius: 50%;
+        object-fit: cover;
+        background-color: p.$secondaryColor--mercury;
+        flex-shrink: 0;
+    }
+
+    &__body {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: p.$size-xs;
+        flex: 1;
+    }
+
+    &__wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__name {
+        @extend .body-copy;
+        font-weight: p.$font-demi;
+    }
+
+    &__description {
+        @extend .body-copy;
+    }
+
+}

@@ -1,4 +1,4 @@
-@use '../../styles/partials/' as p;
+@use '../../../styles/partials/' as p;
 
 .btn {
     @include p.input-layout;

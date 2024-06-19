@@ -2,12 +2,16 @@ import React from 'react'
 import './VideoPlayer.scss';
 import {play, fullscreen, volume_up} from '../../assets/icons';
 
-const VideoPlayer = () => {
+const VideoPlayer = ({video}) => {
+  if (!video) {
+    return <div>Video not found</div>
+  }
+
   return (
     <div className='player'>
         <div className='player__container'>
-            <video poster="https://unit-3-project-api-0a5620414506.herokuapp.com/images/image0.jpg" className='player__video'>
-                <source src="" type="video/mp4"></source>
+            <video poster={video.image} className='player__video'>
+                <source src={video.video} type="video/mp4"></source>
             </video>
             <div className='player__actions'>
                     <div className='player__actions--controls'>
@@ -16,7 +20,7 @@ const VideoPlayer = () => {
                     </div>
                     <div className='player__actions--controls flex-grow'>
                         <div className='player__actions--slider' />
-                        <span className='player__actions--time'>0:00/4:01</span>
+                        <p className='player__actions--time'>{`0:00 / ${video.duration}`}</p>
                     </div>
                     <div className='player__actions--controls'>
                     <img src={fullscreen} alt='icon fullscreen'className='player__actions--icon'/>
@@ -27,7 +31,6 @@ const VideoPlayer = () => {
             </div>
         </div>
     </div>
-    
   )
 }
 

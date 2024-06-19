@@ -1,0 +1,21 @@
+@use '../../../styles/partials/' as p;
+
+.videoMetaInfo {
+
+    &__container {
+        display: flex;
+        gap: p.$size-xs;
+        align-items: center;
+    }
+
+    &__icon {
+        width: p.$size-s;
+        height: p.$size-s;
+    }
+
+    &__label {
+        @extend .body-copy;
+        color: p.$primaryColor--silver;
+    }
+    
+}

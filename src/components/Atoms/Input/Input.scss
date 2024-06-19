@@ -1,0 +1,27 @@
+@use '../../../styles/partials/' as p;
+
+.input {
+    display: flex;
+    flex-direction: column;
+
+    &__label {
+        @include p.label
+    }
+
+    &__field {
+        @include p.input-layout;
+        background-color: p.$secondaryColor--alabaster;
+        border: 1px solid p.$secondaryColor--mercury;
+        width: 100%;
+        height: p.px-to-rem(100);
+        padding: p.$size-xs;
+
+        @include p.breakpoint(tablet) {
+            height: p.px-to-rem(40);
+        }
+
+        &::placeholder {
+            color: p.$primaryColor--black;
+        }
+    }
+}

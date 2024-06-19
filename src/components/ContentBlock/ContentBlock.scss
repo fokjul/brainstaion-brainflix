@@ -1,0 +1,9 @@
+@use '../../styles/partials/' as p;
+
+.contentBlock {
+    display: flex;
+    flex-direction: column;
+    gap: p.$size-l;
+    padding-top: p.$size-m;
+
+}

@@ -1,3 +1,18 @@
 @use './styles/partials/' as p;
 
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-inline: p.$size-s;
 
+    @include p.breakpoint(tablet) {
+        margin-inline: p.$size-l;
+    }
+
+    @include p.breakpoint(desktop) {
+        flex-direction: row;
+        max-width: p.px-to-rem(1200);
+        margin-inline: auto;
+    }
+}

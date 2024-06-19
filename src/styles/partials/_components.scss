@@ -1,4 +1,5 @@
 @use './layouts' as l;
+@use './colors' as c;
 
 @mixin input-layout {
     height: l.$size-xl;

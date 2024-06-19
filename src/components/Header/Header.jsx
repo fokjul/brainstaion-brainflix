@@ -3,6 +3,7 @@ import './Header.scss';
 import logo from '../../assets/logo/BrainFlix-logo.svg';
 import {upload} from '../../assets/icons';
 import * as Comp from '../index.js';
+import avatar from '../../assets/images/Mohan-muruge.jpg';
 
 const Header = () => {
   return (
@@ -16,7 +17,9 @@ const Header = () => {
         btnName='upload'
         btnClass='btn--header'
       />
-      <Comp.Avatar />
+      <Comp.Avatar 
+        avatar={avatar}
+      />
     </div>
     </div>
     
