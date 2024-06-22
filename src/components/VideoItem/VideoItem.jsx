@@ -1,11 +1,14 @@
 import React from 'react'
 import './VideoItem.scss'
+import { useContext } from 'react';
+import { AppContext } from '../../App.jsx';
 
-const VideoItem = ({videoId, videoImage, videoTitle, videoChannel, setMainVideo}) => {
-    
+const VideoItem = ({videoId, videoImage, videoTitle, videoChannel}) => {
+
+    const {setMainVideoId} = useContext(AppContext)
+
     const selectVideoFromList = () => {
-        console.log(videoId)
-        setMainVideo(videoId)     
+        setMainVideoId(videoId)     
     }
 
   return (

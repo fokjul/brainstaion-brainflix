@@ -12,16 +12,21 @@
         @include p.input-layout;
         background-color: p.$secondaryColor--alabaster;
         border: 1px solid p.$secondaryColor--mercury;
-        width: 100%;
-        height: p.px-to-rem(100);
+        min-width: 100%;
+        max-width: 100%;
+        min-height: p.px-to-rem(100);
+        max-height: p.px-to-rem(100);
         padding: p.$size-xs;
 
         @include p.breakpoint(tablet) {
-            height: p.px-to-rem(40);
+            min-height: p.px-to-rem(40);
+            max-height: p.px-to-rem(40);
         }
 
         &::placeholder {
             color: p.$primaryColor--black;
+            
         }
+
     }
 }

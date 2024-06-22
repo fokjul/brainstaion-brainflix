@@ -2,8 +2,11 @@ import React from 'react';
 import videos from '../../data/video-details.json'
 import * as Comp from '../index.js';
 import './VideoList.scss';
+import { useContext } from 'react';
+import { AppContext } from '../../App.jsx';
 
-const VideoList = ({mainVideoId, setMainVideo}) => {
+const VideoList = () => {
+  const {mainVideoId} = useContext(AppContext)
 
   return (
     <div className='videoList'>
@@ -15,8 +18,6 @@ const VideoList = ({mainVideoId, setMainVideo}) => {
           videoImage = {video.image}
           videoTitle = {video.title}
           videoChannel = {video.channel}
-          setMainVideo = {setMainVideo}
-          mainVideoId = {mainVideoId}
         />)
         
       ))}
