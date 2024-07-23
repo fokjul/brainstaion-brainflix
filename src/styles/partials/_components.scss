@@ -7,4 +7,9 @@
     border-radius: l.$size-xxs;
     display: flex;
     align-items: center;
+    outline: none;
+}
+
+input:focus{
+    outline: none;
 }

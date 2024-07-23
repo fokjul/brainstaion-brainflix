@@ -1,26 +1,31 @@
 import React from 'react';
-import videos from '../../data/video-details.json'
 import * as Comp from '../index.js';
 import './VideoList.scss';
 import { useContext } from 'react';
-import { AppContext } from '../../App.jsx';
+import { AppContext } from '../../pages/Home/Home.jsx';
+import { Link } from 'react-router-dom';
 
-const VideoList = () => {
+const VideoList = ({videos}) => {
   const {mainVideoId} = useContext(AppContext)
-
+  
   return (
     <div className='videoList'>
       <p className='videoList__listLabel'>next video</p>
-      {videos.map((video) => (
-        mainVideoId !== video.id && (<Comp.VideoItem 
-          key = {video.id}
-          videoId = {video.id}
-          videoImage = {video.image}
-          videoTitle = {video.title}
-          videoChannel = {video.channel}
-        />)
-        
-      ))}
+      <ul>
+        {videos.map((video) => (
+          mainVideoId !== video.id && (
+          <li key={video.id}>
+            <Link to={`/${video.id}`} >
+              <Comp.VideoItem 
+                videoId = {video.id}
+                videoImage = {video.image}
+                videoTitle = {video.title}
+                videoChannel = {video.channel}
+              />
+            </Link>
+          </li>    
+        )))}
+      </ul>
     </div>
   )
 }

@@ -14,7 +14,13 @@ const CommentForm = () => {
       </div>
       <div className='comment-form__container'>
         <div className='comment-form__input'>
-          <Comp.Input />
+          <Comp.TextArea 
+            label={'join the conversation'}
+            placeholder={'Add a new comment'}
+            textAreaId={'textArea-comment'}
+            textAreaName={'textArea-comment'}
+            textAreaClassName={'textArea__field'}
+          />
         </div>
         
         <div className='comment-form__btn'>

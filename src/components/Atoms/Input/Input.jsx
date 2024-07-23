@@ -1,11 +1,11 @@
 import React from 'react';
 import './Input.scss';
 
-const Input = () => {
+const Input = ({label, placeholder}) => {
   return (
     <div className='input'>
-        <label htmlFor='input-comment' className='input__label'>join the conversation</label>
-        <textarea id='input-comment' name='input-comment' className='input__field' placeholder='Add a new comment'></textarea>
+        <label htmlFor='input-upload' className='input__label'>{label}</label>
+        <input type="text" id='input-upload' name='input-upload' className='input__field' placeholder={placeholder} />
     </div>
   )
 }

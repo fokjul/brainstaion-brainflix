@@ -36,6 +36,7 @@
 
     &__input {
         flex: 1;
+        
     }
 
     @include p.breakpoint(tablet) {

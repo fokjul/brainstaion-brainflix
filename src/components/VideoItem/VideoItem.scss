@@ -3,6 +3,14 @@
 .video-preview {
     padding: p.$size-xxs;
     border-radius: p.$size-xxs;
+
+    @include p.breakpoint (desktop) {
+        min-width: p.px-to-rem(352);
+    }
+
+    &:hover {
+        background-color: p.$secondaryColor--mercury;
+    }
     
     &__container {
         display: flex;
@@ -10,18 +18,16 @@
         cursor: pointer;
         max-width: p.px-to-rem(352);
         
-
         @include p.breakpoint (desktop) {
-            min-width: p.px-to-rem(352);
+            width: inherit;
         }
-        
     }
 
     &__img-container {
         max-width: p.px-to-rem(125);
         max-height: p.px-to-rem(75);
-        
     }
+
     &__img {
         width: 100%;
         height: 100%;
@@ -43,8 +49,12 @@
     &__channel {
         @extend .body-copy;
     }
+}
 
-    &:hover {
-        background-color: p.$secondaryColor--mercury;
+a:has(.video-preview) {
+    color: p.$primaryColor--black;
+    
+    @include p.breakpoint (desktop) {
+        min-width: p.px-to-rem(352);
     }
 }

@@ -1,6 +1,6 @@
 @use '../../../styles/partials/' as p;
 
-.input {
+.textArea {
     display: flex;
     flex-direction: column;
 
@@ -28,6 +28,14 @@
             @extend .body-copy;
             font-family: p.$font;
         }
+    }
 
+    &__upload {
+        @extend .textArea__field;
+        @include p.breakpoint(tablet) {
+            min-height: p.px-to-rem(100);
+            max-height: p.px-to-rem(100);
+        }
     }
 }
+

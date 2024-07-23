@@ -1,18 +1,10 @@
 import React from 'react'
 import './VideoItem.scss'
-import { useContext } from 'react';
-import { AppContext } from '../../App.jsx';
 
 const VideoItem = ({videoId, videoImage, videoTitle, videoChannel}) => {
 
-    const {setMainVideoId} = useContext(AppContext)
-
-    const selectVideoFromList = () => {
-        setMainVideoId(videoId)     
-    }
-
   return (
-    <div id="videoId" className='video-preview' onClick={selectVideoFromList}>
+    <div id="videoId" className='video-preview' >
         <div className='video-preview__container'>
             <div className='video-preview__img-container'>
                 <img src={videoImage} alt='videoTitle' className='video-preview__img'/>
@@ -24,7 +16,6 @@ const VideoItem = ({videoId, videoImage, videoTitle, videoChannel}) => {
             </div>
         </div>
     </div>
-    
   )
 }
 

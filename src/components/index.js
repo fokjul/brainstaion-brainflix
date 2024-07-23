@@ -10,6 +10,7 @@ import VideoComments from "./VideoComments/VideoComments";
 import VideoItem from "./VideoItem/VideoItem";
 import VideoMetaInfo from "./Atoms/VideoMetaInfo/VideoMetaInfo";
 import CommentForm from "./CommentForm/CommentForm";
+import TextArea from "./Atoms/TextArea/TextArea";
 import Input from "./Atoms/Input/Input";
 import CommentItem from "./Atoms/CommentItem/CommentItem"
 
@@ -29,5 +30,6 @@ export {
     VideoMetaInfo,
     CommentForm,
     Input,
+    TextArea,
     CommentItem
 }

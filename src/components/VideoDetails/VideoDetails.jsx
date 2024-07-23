@@ -29,8 +29,6 @@ const VideoDetails = ({video}) => {
                 videoMetaInfo={video.likes}
               />
             </div>
-            
-            
           </div>
           <p className='video-details__description'>{video.description}</p> 
     </div>

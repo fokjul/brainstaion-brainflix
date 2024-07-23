@@ -27,16 +27,21 @@
     &:hover {
         background-color: p.$secondaryColor--darkBlue;
     }
+
+
 }
 
-.btn--header {
+a:has(.btn--header) {
     order: 3;
     grid-column-start: 1;
-    grid-column-end: span 2;
-
-    @include p.breakpoint(tablet){
-        order: 2;
-    }
+    grid-column: span 2;
+    
+        @include p.breakpoint(tablet){
+            order: 2;
+            
+        }
 }
+
+
 
 
