@@ -1,0 +1,25 @@
+@use '../../styles/partials/' as p;
+
+.btn-secondary {
+    @include p.input-layout;
+    border: none;
+    display: flex;
+    justify-content: center;
+    background-color: p.$primaryColor--white;
+    width: 100%;
+    cursor: pointer;
+
+    @include p.breakpoint(tablet){
+        width: p.px-to-rem(150);
+    }
+
+    &__label {
+        @extend .labels-buttons;
+        text-transform: uppercase;
+        color: p.$primaryColor--blue;
+    }
+
+    &:hover {
+        background-color: p.$secondaryColor--darkBlue;
+    }
+}

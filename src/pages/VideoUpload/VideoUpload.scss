@@ -1,5 +1,102 @@
 @use '../../styles/partials/' as p;
 
-.thumbnail {
-    ;
+.upload {
+    display: flex;
+    flex-direction: column;
+    padding: p.$size-s;
+    padding-block: p.$size-xl;
+    gap: p.$size-s;
+    border-top: 1px solid p.$secondaryColor--mercury;
+
+    @include p.breakpoint (tablet) {
+        justify-content: space-between;
+        margin-inline: p.$size-l;
+    }
+
+    @include p.breakpoint (desktop) {
+        max-width: p.px-to-rem(1200);
+        margin-inline: auto;
+    }
+}
+
+.uploadForm {
+    display: flex;
+    flex-direction: column;
+    
+    &__wrapper {
+        border-block:none;
+
+        @include p.breakpoint(tablet) {
+            border-block: 1px solid p.$secondaryColor--mercury;
+        }
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: p.$size-s;
+        margin-block: p.$size-xs; 
+
+        @include p.breakpoint (tablet) {
+            margin-block: p.$size-m;
+        }
+        
+        @include p.breakpoint (desktop) {
+            flex-direction: row;
+            height: p.px-to-rem(200);
+        }
+    }
+
+    &__thumbnail {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        
+        &-label {
+            @include p.label;
+        }
+    
+        &-img {
+            height: inherit;
+            width: 100%;
+            max-width: p.px-to-rem(460);
+            object-fit: cover;
+            border-radius: 4px;
+        }
+    }
+
+    &__inputs {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: p.$size-m;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: p.$size-m;
+        margin-block: p.$size-m; 
+
+        @include p.breakpoint(tablet) {
+            flex-direction: row;
+        }
+    }
+}
+
+#publishButton {
+    order: 1;
+
+    @include p.breakpoint(tablet){
+        order: 2;
+    }
+}
+
+#cancelUpload {
+    order: 2;
+
+    @include p.breakpoint(tablet){
+        order: 1;
+    }
 }

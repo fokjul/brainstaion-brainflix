@@ -3,6 +3,7 @@
 .textArea {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 
     &__label {
         @include p.label
@@ -31,10 +32,17 @@
     }
 
     &__upload {
-        @extend .textArea__field;
-        @include p.breakpoint(tablet) {
-            min-height: p.px-to-rem(100);
-            max-height: p.px-to-rem(100);
+        background-color: p.$secondaryColor--alabaster;
+        border: 1px solid p.$secondaryColor--mercury;
+        min-width: 100%;
+        max-width: 100%;
+        padding: p.$size-xs;
+        height: 100%;
+
+        &::placeholder {
+            color: p.$primaryColor--black;
+            @extend .body-copy;
+            font-family: p.$font;
         }
     }
 }

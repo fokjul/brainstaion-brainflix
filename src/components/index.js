@@ -13,6 +13,7 @@ import CommentForm from "./CommentForm/CommentForm";
 import TextArea from "./Atoms/TextArea/TextArea";
 import Input from "./Atoms/Input/Input";
 import CommentItem from "./Atoms/CommentItem/CommentItem"
+import BtnSecondary from "./BtnSecondary/BtnSecondary";
 
 
 
@@ -31,5 +32,6 @@ export {
     CommentForm,
     Input,
     TextArea,
-    CommentItem
+    CommentItem, 
+    BtnSecondary
 }
