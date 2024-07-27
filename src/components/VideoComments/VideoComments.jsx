@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import * as Comp from '../index.js';
 import './VideoComments.scss';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { AppContext } from '../../pages/Home/Home.jsx';
 
-const VideoComments = ({video, setComments, comments, mainVideoId}) => {
-
+const VideoComments = ({setComments, comments}) => {
+  const {mainVideoId} = useContext(AppContext)
   const [error, setError] = useState('');
   const baseUrl = 'https://unit-3-project-api-0a5620414506.herokuapp.com/videos/';
   const api = '?api_key=bd639221-9c5b-420e-826c-d01265d31e6e';
   const [inputValue, setInputValue] = useState('');
-  const { videoId } = useParams(); //grabs id from URL if any
+  const { videoId } = useParams(); //grabs id from URL
   const itemId = videoId ? videoId : mainVideoId;
   const body = {
     name: 'Yuliia Fok', 
@@ -73,6 +74,7 @@ const VideoComments = ({video, setComments, comments, mainVideoId}) => {
           timestamp={comment.timestamp}
           deleteComment={deleteComment}
           commentId={comment.id}
+          myName={body.name}
       /> 
       ))}
     </div>

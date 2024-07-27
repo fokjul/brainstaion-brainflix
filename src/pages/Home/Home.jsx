@@ -51,16 +51,15 @@ if (!video) return <div>Loading...</div>;
 
     return (
       <>
-          <AppContext.Provider value={{mainVideoId, setMainVideoId}}>
+          <AppContext.Provider value={{mainVideoId, setMainVideoId, video, comments, setComments}}>
               <Comp.VideoPlayer 
                   video = {video}
               />
               <div className='contentContainer'>
                   <Comp.ContentBlock 
-                    video = {video}
+                    //video = {video}
                     comments={comments}
                     setComments = {setComments}
-                    mainVideoId = {mainVideoId}
                   />
                   <Comp.VideoList 
                     videos = {videos}

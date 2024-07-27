@@ -34,7 +34,6 @@ const CommentForm = ({handleFormSubmit, hadleInputValue, inputValue}) => {
           />
         </div>
       </form>
-
     </div>
   )
 }

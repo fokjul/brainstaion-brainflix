@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import * as Comp from '../index.js';
 import './ContentBlock.scss';
+import { AppContext } from '../../pages/Home/Home.jsx';
 
-const ContentBlock = ({video, comments, setComments, mainVideoId}) => {
-  
+const ContentBlock = ({comments, setComments}) => {
+  const {video} = useContext(AppContext)
   if (!video) {
     return <div>Video info is not available</div>
   }
@@ -11,13 +12,11 @@ const ContentBlock = ({video, comments, setComments, mainVideoId}) => {
   return (
     <div className='contentBlock'>
         <Comp.VideoDetails 
-          video={video}
+          //video={video}
         />
         <Comp.VideoComments
-          video={video} 
           setComments={setComments}
           comments={comments}
-          mainVideoId={mainVideoId}
         />
 
     </div>

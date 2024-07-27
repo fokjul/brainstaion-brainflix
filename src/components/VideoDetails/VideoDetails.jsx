@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import * as Comp from '../index.js';
 import './VideoDetails.scss';
 import { likes, views } from '../../assets/icons/';
 import timeAgo from '../../util/timeAgoFn.js';
+import { AppContext } from '../../pages/Home/Home.jsx';
 
-const VideoDetails = ({video}) => {
-
+const VideoDetails = () => {
+  const {video} = useContext(AppContext)
+  console.log(video)
+  if (!video) return <div>Loading...</div>;
   return (
     <div className='video-details'>
           <h1 className='video-details__title'>{video.title}
