@@ -42,4 +42,17 @@
         @extend .body-copy;
     }
 
+    &__deleteBtn {
+        max-width: p.px-to-rem(60);
+        border: none;
+        font-family: p.$font;
+        border-radius: p.$size-xxs;
+        padding-block: p.$size-xxs;
+        cursor: pointer;
+
+        &:hover {
+            background-color: p.$secondaryColor--mercury;
+        }
+    }
+
 }

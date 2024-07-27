@@ -5,7 +5,8 @@ import Avatar from '../Avatar/Avatar';
 import timeAgo from '../../../util/timeAgoFn.js';
 
 
-const CommentItem = ({name, comment, timestamp}) => {
+const CommentItem = ({name, comment, timestamp, deleteComment, commentId}) => 
+{
   return (
     <div className="comment">
         <Avatar 
@@ -21,6 +22,7 @@ const CommentItem = ({name, comment, timestamp}) => {
                 />
             </div>
             <p className='comment__description'>{comment}</p>
+            <button className='comment__deleteBtn' onClick={() => deleteComment(commentId)}>Delete</button>
         </div>
     </div>
     

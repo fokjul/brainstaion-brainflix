@@ -7,39 +7,39 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const VideoUpload = () => {
+  //State to hide form after upload
   const [displayForm, setDisplayForm] = useState(true)
 
+  //For redicrect to home page
   const navigate = useNavigate();
-  let msToEnd = 0;
-  const delay = 5000;
+  const delay = 7000;
   const [timeLeft, setTimeLeft] = useState(delay);
-  
 
   function handleFormSubmit(e){
     e.preventDefault();
     setDisplayForm(false)
     
-
+    //Calculates time left to redirect
     const timeToRedirect = setInterval(() => {
-      console.log(setTimeLeft((timeLeft) => (timeLeft - 1000)))
+      setTimeLeft((timeLeft) => (timeLeft - 1000))
     }, 1000);
 
+    //Redirects to home page and clears interval after the delay
     setTimeout(()=> { 
       navigate('/')
       clearInterval(timeToRedirect)
-    
     }, delay)
-
 
   }
   return (
     <div className='upload'>
       <h1 className='upload__title'>Upload Video
       </h1>
-      <div>
-        <p style={{display: displayForm ? 'none' : 'block'}}>{`Video has been uploaded ${timeLeft / 1000} sec`}</p>
-      </div>
-      <form className='uploadForm' onSubmit={handleFormSubmit} style={{display: displayForm ? 'block' : 'none'}}>
+      <Comp.SuccessMessage 
+        displayForm={displayForm}
+        timeLeft={timeLeft}
+      />
+      <form className={`uploadForm ${displayForm ? 'display' : 'displayNone'}`} onSubmit={handleFormSubmit} >
         <div className='uploadForm__wrapper'>
           <div className='uploadForm__container'> 
             <div className='uploadForm__thumbnail'>

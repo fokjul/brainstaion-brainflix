@@ -4,7 +4,8 @@ import * as Comp from '../index.js';
 import './CommentForm.scss';
 import avatar from '../../assets/images/Mohan-muruge.jpg';
 
-const CommentForm = () => {
+const CommentForm = ({handleFormSubmit, hadleInputValue, inputValue}) => {
+  
   return (
     <div className='comment-form'>
       <div className='comment-form__avatar'>
@@ -12,7 +13,7 @@ const CommentForm = () => {
           avatar={avatar}
         />
       </div>
-      <div className='comment-form__container'>
+      <form className='comment-form__container' onSubmit={handleFormSubmit}>
         <div className='comment-form__input'>
           <Comp.TextArea 
             label={'join the conversation'}
@@ -20,6 +21,8 @@ const CommentForm = () => {
             textAreaId={'textArea-comment'}
             textAreaName={'textArea-comment'}
             textAreaClassName={'textArea__field'}
+            handleInputValue={hadleInputValue}
+            inputValue={inputValue}
           />
         </div>
         
@@ -30,7 +33,7 @@ const CommentForm = () => {
             btnClass='comment-form__button'
           />
         </div>
-      </div>
+      </form>
 
     </div>
   )

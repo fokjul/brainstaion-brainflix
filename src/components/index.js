@@ -14,6 +14,7 @@ import TextArea from "./Atoms/TextArea/TextArea";
 import Input from "./Atoms/Input/Input";
 import CommentItem from "./Atoms/CommentItem/CommentItem"
 import BtnSecondary from "./BtnSecondary/BtnSecondary";
+import SuccessMessage from "./SuccessMessage/SuccessMessage";
 
 
 
@@ -33,5 +34,6 @@ export {
     Input,
     TextArea,
     CommentItem, 
-    BtnSecondary
+    BtnSecondary,
+    SuccessMessage
 }

@@ -13,7 +13,6 @@ function App() {
         <Route path='/' element={<Home />}/>
         <Route path='video-upload' element={<VideoUpload />} />
         <Route path=':videoId' element={<Home />}/>
-        <Route path='/redirect' element={<Navigate to='/' />}/>
       </Routes>
     </>
   );
