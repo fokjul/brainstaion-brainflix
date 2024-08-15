@@ -10,6 +10,7 @@
         padding-left: p.$size-m;
         border-left: 1px solid p.$secondaryColor--mercury;
         min-width: p.px-to-rem(352);
+        width: 50%;
     }
 
     &__listLabel {

@@ -6,4 +6,8 @@
     gap: p.$size-l;
     padding-top: p.$size-m;
 
+    @include p.breakpoint(desktop) {
+        width: 50%;
+    }
+
 }

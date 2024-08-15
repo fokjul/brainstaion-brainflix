@@ -14,7 +14,7 @@ const TextArea = ({textAreaId, textAreaName, textAreaClassName, label, placehold
           className={textAreaClassName} 
           placeholder={placeholder}
           value={inputValue}
-          onChange={handleInputValue}
+          onChange={(e) => handleInputValue(e)}
           >
           
         </textarea>

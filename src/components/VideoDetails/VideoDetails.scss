@@ -5,6 +5,11 @@
     flex-direction: column;
     gap: p.$size-m;
 
+    &__title-container {
+        display: flex;
+        justify-content: space-between;
+        padding-right: p.$size-m;
+    }
 
     &__title {
         @extend .heading1 
@@ -41,8 +46,7 @@
         @include p.breakpoint(desktop) {
             padding-right: p.$size-m;
         }
-
-
     }
-
 }
+
+

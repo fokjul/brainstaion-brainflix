@@ -3,6 +3,7 @@ import './CommentItem.scss';
 import VideoMetaInfo from '../VideoMetaInfo/VideoMetaInfo';
 import Avatar from '../Avatar/Avatar';
 import timeAgo from '../../../util/timeAgoFn.js';
+import * as Comp from '../../index.js';
 
 
 const CommentItem = ({name, comment, timestamp, deleteComment, commentId, myName}) => 
@@ -22,7 +23,11 @@ const CommentItem = ({name, comment, timestamp, deleteComment, commentId, myName
                 />
             </div>
             <p className='comment__description'>{comment}</p>
-            {name === myName && <button className='comment__deleteBtn' onClick={() => deleteComment(commentId)}>Delete</button>}
+            {name === myName && <Comp.BtnSecondary 
+                btnId = '#deleteComment'
+                btnLabel = 'Delete Comment'
+                handleClick = {() => deleteComment(commentId)}
+            />}
             
         </div>
     </div>

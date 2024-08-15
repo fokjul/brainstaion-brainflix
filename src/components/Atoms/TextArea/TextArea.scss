@@ -1,5 +1,8 @@
 @use '../../../styles/partials/' as p;
 
+textarea {
+    font-family: inherit;
+}
 .textArea {
     display: flex;
     flex-direction: column;
@@ -18,6 +21,7 @@
         min-height: p.px-to-rem(100);
         max-height: p.px-to-rem(100);
         padding: p.$size-xs;
+
 
         @include p.breakpoint(tablet) {
             min-height: p.px-to-rem(40);

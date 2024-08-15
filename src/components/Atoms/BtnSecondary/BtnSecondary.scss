@@ -1,17 +1,19 @@
-@use '../../styles/partials/' as p;
+@use '../../../styles/partials/' as p;
 
-.btn-secondary {
+.btnSecondary {
     @include p.input-layout;
     border: none;
-    display: flex;
+    background-color: transparent;
     justify-content: center;
-    background-color: p.$primaryColor--white;
     width: 100%;
     cursor: pointer;
 
     @include p.breakpoint(tablet){
-        width: p.px-to-rem(150);
+        max-width: p.px-to-rem(120);
+        width: fit-content;
+        padding-inline: 0
     }
+
 
     &__label {
         @extend .labels-buttons;
@@ -20,6 +22,6 @@
     }
 
     &:hover {
-        background-color: p.$secondaryColor--darkBlue;
+        background-color: p.$secondaryColor--mercury;
     }
 }

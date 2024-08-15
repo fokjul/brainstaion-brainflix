@@ -14,7 +14,7 @@ const VideoList = ({videos}) => {
       <ul>
         {videos.map((video) => (
           mainVideoId !== video.id && (
-          <li key={video.id}>
+          <li key={video.id} onClick={() => {window.scrollTo(0,0)}}>
             <Link to={`/${video.id}`} >
               <Comp.VideoItem 
                 videoId = {video.id}

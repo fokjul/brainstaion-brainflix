@@ -1,13 +1,14 @@
 import React from 'react'
 import './SuccessMessage.scss'
 
-const SuccessMessage = ({displayForm, timeLeft}) => {
+const SuccessMessage = ({displaySettings, timeLeft, action}) => {
+
   return (
-    <div className={displayForm ? 'displayNone' : 'display'}>
+    <div className={displaySettings ? 'displayNone' : 'display'}>
         <div className='successMsg'>
-            <h2>Video Uploaded!</h2>
-            <p className={displayForm ? 'displayNone' : 'display'}>
-            Your video has been uploaded successfully</p>
+            <h2>{`Video ${action}!`}</h2>
+            <p className={displaySettings ? 'displayNone' : 'display'}>
+            {`Your video has been ${action} successfully`}</p>
             <p>{`You will be redirect to Home page in ${timeLeft / 1000} sec`}</p>
         </div>
     </div>

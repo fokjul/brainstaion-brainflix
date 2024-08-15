@@ -24,7 +24,7 @@
     flex-direction: column;
     
     &__wrapper {
-        border-block:none;
+        border-block: none;
 
         @include p.breakpoint(tablet) {
             border-block: 1px solid p.$secondaryColor--mercury;

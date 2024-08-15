@@ -4,7 +4,7 @@ import * as Comp from '../index.js';
 import './CommentForm.scss';
 import avatar from '../../assets/images/Mohan-muruge.jpg';
 
-const CommentForm = ({handleFormSubmit, hadleInputValue, inputValue}) => {
+const CommentForm = ({handleFormSubmit, handleInputValue, inputValue}) => {
   
   return (
     <div className='comment-form'>
@@ -21,7 +21,7 @@ const CommentForm = ({handleFormSubmit, hadleInputValue, inputValue}) => {
             textAreaId={'textArea-comment'}
             textAreaName={'textArea-comment'}
             textAreaClassName={'textArea__field'}
-            handleInputValue={hadleInputValue}
+            handleInputValue={handleInputValue}
             inputValue={inputValue}
           />
         </div>

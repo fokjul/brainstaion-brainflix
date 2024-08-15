@@ -1,0 +1,20 @@
+@use '../../styles/partials/' as p;
+
+.display {
+    display: block;
+}
+
+.displayNone {
+    display: none;
+}
+
+.success-message-container {   
+    padding: p.$size-l;
+}
+
+.contentContainer {
+    display: flex;
+    @include p.breakpoint(desktop) {
+        min-width: p.px-to-rem(960);
+    }
+}

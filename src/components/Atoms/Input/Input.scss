@@ -16,6 +16,7 @@
         max-width: 100%;
         height: p.px-to-rem(40);
         padding: p.$size-xs;
+        font-family: p.$font;
 
         &::placeholder {
             color: p.$primaryColor--black;

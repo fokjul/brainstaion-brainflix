@@ -5,25 +5,29 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { AppContext } from '../../pages/Home/Home.jsx';
+import {v4 as uuidv4} from 'uuid'; //to generate unique id for comments
 
 const VideoComments = ({setComments, comments}) => {
   const {mainVideoId} = useContext(AppContext)
   const [error, setError] = useState('');
-  const baseUrl = 'https://unit-3-project-api-0a5620414506.herokuapp.com/videos/';
-  const api = '?api_key=bd639221-9c5b-420e-826c-d01265d31e6e';
+  const baseUrl = '/videos/';
   const [inputValue, setInputValue] = useState('');
-  const { videoId } = useParams(); //grabs id from URL
+  const { videoId } = useParams(); //to grab video id from URL
   const itemId = videoId ? videoId : mainVideoId;
+  
   const body = {
+    id: uuidv4(),
     name: 'Yuliia Fok', 
-    comment: inputValue
+    comment: inputValue,
+    likes: 0,
+    timestamp: Date.now(),
   }
 
   const getComments = async () => {
     try {
-        const response = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${itemId}?api_key=bd639221-9c5b-420e-826c-d01265d31e6e`)
+        const response = await axios.get(baseUrl + itemId)
         const updatedComments = response.data.comments
-        updatedComments && setComments(updatedComments) 
+        if(updatedComments) {setComments([...updatedComments])} 
     } catch (err) {
         if (err) setError(err.message) 
     }
@@ -33,7 +37,7 @@ const VideoComments = ({setComments, comments}) => {
     e.preventDefault()
     const postComment = async () => {
       try {
-        const response = await axios.post(baseUrl + itemId + '/comments' + api, body);
+        await axios.post(`${baseUrl}${itemId}/comments`, body);
       } catch (err) {
         if (err) setError(err.message)
       }
@@ -43,18 +47,15 @@ const VideoComments = ({setComments, comments}) => {
     setInputValue('');
   }
 
-  const hadleInputValue = (e) => {
+  const handleInputValue = (e) => {
     setInputValue(e.target.value);
   }
 
-  const deleteComment = async (commentId) => {
+  const deleteComment = async(commentId) => {
     try {
-      const req = baseUrl + itemId + '/comments/' + commentId + api;
-      await axios.delete(req)
-      getComments();
-      
-
-  } catch (err) {
+      await axios.delete(baseUrl + itemId + '/comments/' + commentId)
+      await getComments();
+    } catch (err) {
       if (err) setError(err.message) 
     }
   }
@@ -63,7 +64,8 @@ const VideoComments = ({setComments, comments}) => {
     <div className='comments'>
       <p className='comments__qty'>{`${comments.length} comments`}</p> 
       <Comp.CommentForm 
-        handleFormSubmit={handleFormSubmit} hadleInputValue={hadleInputValue}
+        handleFormSubmit={handleFormSubmit} 
+        handleInputValue={handleInputValue}
         inputValue={inputValue}
       />
       {comments.map(comment => (

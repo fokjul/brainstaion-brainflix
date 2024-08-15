@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const VideoDetails = () => {
-
   const { videoId } = useParams();
 
   //Sets the state to the first video in the list
@@ -16,7 +15,7 @@ const VideoDetails = () => {
   useEffect( () => {
     const getVideo = async () => {
         try {
-          const response = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${videoId}?api_key=bd639221-9c5b-420e-826c-d01265d31e6e`)
+          const response = await axios.get(`/api/videos/${videoId}`)
           setVideo(response.data)
         } catch (err) {
           if (err) setError(err.message) 
