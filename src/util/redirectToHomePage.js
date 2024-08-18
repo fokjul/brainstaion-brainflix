@@ -1,6 +1,4 @@
-import { useEffect } from "react";
-
-const redirectToHomePage = (setTimeLeft, navigate) => {
+const redirectToHomePage = (setTimeLeft, navigate, setDisplayMainSection) => {
     const delay = 5000;
     setTimeLeft(delay)
 
@@ -11,8 +9,8 @@ const redirectToHomePage = (setTimeLeft, navigate) => {
 
     //Redirects to home page and clears interval after the delay
     setTimeout(()=> { 
+    if(timeToRedirect === 0) setDisplayMainSection(true)
     navigate('/')
-
     clearInterval(timeToRedirect)
     }, delay)
 

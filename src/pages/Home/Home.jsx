@@ -9,7 +9,6 @@ export const AppContext = createContext();
 
 
 const Home = () => {
-  console.log('Home component is rendering');
   const { videoId } = useParams(); //grabs id from URL if any 
   const [videos, setVideos] = useState(null); //sets video list
   const [mainVideoId, setMainVideoId] = useState(''); //sets main video
@@ -47,7 +46,7 @@ const Home = () => {
           setVideo(response.data) 
           setComments(response.data.comments) 
       } catch (err) {
-          if (err) setError(err.message) 
+          setError('Failed to fetch video');
       }
   }
     getVideo();
@@ -60,7 +59,7 @@ const Home = () => {
         setDisplayMainSection(false)
         redirectToHomePage(setTimeLeft, navigate)
       } catch (err) {
-        if(err) setError(err.message)
+        setError('Failed to fetch videos');
       }
     }
   }
@@ -68,8 +67,8 @@ const Home = () => {
   useEffect(() => {
     if (error) {
       setDisplayMainSection(false);
-      redirectToHomePage(setTimeLeft, navigate)
-      console.log(displayMainSection)
+      redirectToHomePage(setTimeLeft, navigate, setDisplayMainSection)
+      return;
     }
   }, [error]);
 
@@ -80,19 +79,20 @@ const Home = () => {
   }, [timeLeft]);
   
 
-if (error) return ( <div>error</div>
-  // <NotFound 
-  //   displaySettings={displayMainSection}
-  //   timeLeft={timeLeft}
-  // />
+if (error) return (
+  <NotFound 
+    displaySettings={displayMainSection}
+    timeLeft={timeLeft}
+  />
 )
   
 //Adds conditional rendering to VideoList to ensure that VideoList only renders when videos is not null or undefined
-if (!videos || !video) return <div>Loading...</div>;
+if (!videos || !video) {
+  return <div>Loading...</div>;
+}
 
 return (
   <>
-  {console.log('anything here?')}
     {/* Success message after video is deleted */}
     <div className='success-message-container'>
       <Comp.SuccessMessage 
@@ -103,7 +103,6 @@ return (
     </div>
     
     <section key={videoId} className={`main-section ${displayMainSection ? 'display' : 'displayNone'}`}>
-    {console.log('Rendering section with videoId:', videoId, 'and displayMainSection:', displayMainSection)}
       <AppContext.Provider value={{mainVideoId, setMainVideoId, video, comments, setComments}}>
         <Comp.VideoPlayer 
             video = {video}
