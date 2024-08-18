@@ -1,0 +1,21 @@
+@use '../../styles/partials/' as p;
+
+.display {
+    display: block;
+}
+
+.displayNone {
+    //display: none;
+    background-color: red;
+}
+
+.notFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: p.$size-l;
+    gap: p.$size-s;
+    background-color: p.$secondaryColor--mercury;
+    border-radius: p.$size-xs;
+    padding-block: p.$size-l;
+}

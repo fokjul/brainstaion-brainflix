@@ -5,14 +5,12 @@
     border: none;
     background-color: transparent;
     justify-content: center;
-    width: 100%;
+    max-width: p.px-to-rem(120);
+    width: fit-content;
     cursor: pointer;
+    padding-inline: 0;
+    
 
-    @include p.breakpoint(tablet){
-        max-width: p.px-to-rem(120);
-        width: fit-content;
-        padding-inline: 0
-    }
 
 
     &__label {

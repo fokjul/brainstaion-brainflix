@@ -4,22 +4,23 @@ import * as Comp from '../../components/index.js';
 import { useState, useEffect, createContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import NotFound from '../NotFound/NotFound.jsx';
 export const AppContext = createContext();
 
 
 const Home = () => {
+  console.log('Home component is rendering');
   const { videoId } = useParams(); //grabs id from URL if any 
   const [videos, setVideos] = useState(null); //sets video list
   const [mainVideoId, setMainVideoId] = useState(''); //sets main video
   const [video, setVideo] = useState(null);
   const [comments, setComments] = useState(null); 
   const [error, setError] = useState('');
-  const [displayMainSection, setDisplayMainSection] = useState(true)
-  const [redirectCompleted, setRedirectCompleted] = useState(false) 
+  const [displayMainSection, setDisplayMainSection] = useState(true) 
 
-   //For redicrect to home page
-   const navigate = useNavigate();
-   const [timeLeft, setTimeLeft] = useState(null);
+  //For redicrect to home page
+  const navigate = useNavigate();
+  const [timeLeft, setTimeLeft] = useState(null);
 
   //gets list of videos from API and sets value for default video
   useEffect( () => {
@@ -64,45 +65,64 @@ const Home = () => {
     }
   }
 
-  useEffect(()=> {
-    setDisplayMainSection(true)
-  }, [timeLeft === 0])
+  useEffect(() => {
+    if (error) {
+      setDisplayMainSection(false);
+      redirectToHomePage(setTimeLeft, navigate)
+      console.log(displayMainSection)
+    }
+  }, [error]);
 
-if (error) return <p>Error</p>
-if (!videos) return <div>Loading...</div>;
-if (!video) return <div>Loading...</div>;
+  useEffect(() => {
+    if (timeLeft === 0) {
+      setDisplayMainSection(true);
+    }
+  }, [timeLeft]);
+  
 
-    return (
-      <>
-        <div className='success-message-container'>
-          <Comp.SuccessMessage 
-            displaySettings={displayMainSection}
-            action='deleted'
-            timeLeft={timeLeft}
-          />
-        </div>
-        
-        <section className={`main-section ${displayMainSection ? 'display' : 'displayNone'}`}>
-          <AppContext.Provider value={{mainVideoId, setMainVideoId, video, comments, setComments}}>
-            <Comp.VideoPlayer 
-                video = {video}
+if (error) return ( <div>error</div>
+  // <NotFound 
+  //   displaySettings={displayMainSection}
+  //   timeLeft={timeLeft}
+  // />
+)
+  
+//Adds conditional rendering to VideoList to ensure that VideoList only renders when videos is not null or undefined
+if (!videos || !video) return <div>Loading...</div>;
+
+return (
+  <>
+  {console.log('anything here?')}
+    {/* Success message after video is deleted */}
+    <div className='success-message-container'>
+      <Comp.SuccessMessage 
+        displaySettings={displayMainSection}
+        timeLeft={timeLeft}
+       action='deleted'
+      />
+    </div>
+    
+    <section key={videoId} className={`main-section ${displayMainSection ? 'display' : 'displayNone'}`}>
+    {console.log('Rendering section with videoId:', videoId, 'and displayMainSection:', displayMainSection)}
+      <AppContext.Provider value={{mainVideoId, setMainVideoId, video, comments, setComments}}>
+        <Comp.VideoPlayer 
+            video = {video}
+        />
+        <div className='contentContainer'>
+            <Comp.ContentBlock 
+              comments={comments}
+              setComments = {setComments}
+              setDisplayMainSection = {setDisplayMainSection}
+              deleteVideo = {deleteVideo}
             />
-            <div className='contentContainer'>
-                <Comp.ContentBlock 
-                  comments={comments}
-                  setComments = {setComments}
-                  setDisplayMainSection = {setDisplayMainSection}
-                  deleteVideo = {deleteVideo}
-                />
-                <Comp.VideoList 
-                  videos = {videos}
-                />
-            </div>
-          </AppContext.Provider>
-        </section>
-    </>
-      
-    )
+            <Comp.VideoList 
+              videos = {videos}
+            />
+        </div>
+      </AppContext.Provider>
+    </section>
+  </>
+)
 }
 
 export default Home
